@@ -14,5 +14,6 @@ defmodule GotQuotesApi.Quotes.Quote do
     quote
     |> cast(attrs, [:sentence, :character])
     |> validate_required([:sentence, :character])
+    |> unique_constraint(:sentence)
   end
 end

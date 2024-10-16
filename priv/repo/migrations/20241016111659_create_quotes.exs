@@ -8,5 +8,7 @@ defmodule GotQuotesApi.Repo.Migrations.CreateQuotes do
 
       timestamps(type: :utc_datetime)
     end
+
+    create unique_index(:quotes, [:sentence])
   end
 end
