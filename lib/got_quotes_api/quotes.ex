@@ -101,4 +101,20 @@ defmodule GotQuotesApi.Quotes do
   def change_quote(%Quote{} = quote, attrs \\ %{}) do
     Quote.changeset(quote, attrs)
   end
+
+  @doc """
+  Returns a random quote.
+
+  ## Examples
+
+      iex> get_random_quote()
+      %Quote{}
+
+      iex> get_random_quote()
+      %Quote{}
+
+  """
+  def get_random_quote() do
+    Repo.one(from q in Quote, order_by: fragment("RANDOM()"), limit: 1)
+  end
 end
