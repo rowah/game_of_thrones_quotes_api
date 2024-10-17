@@ -21,9 +21,12 @@ defmodule GotQuotesApiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GotQuotesApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", GotQuotesApiWeb do
+    pipe_through :api
+
+    get "/quotes", QuotesController, :index
+    get "/quotes/random", QuotesController, :random
+  end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
   if Application.compile_env(:got_quotes_api, :dev_routes) do
