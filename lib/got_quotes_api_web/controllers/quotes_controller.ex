@@ -8,6 +8,11 @@ defmodule GotQuotesApiWeb.QuotesController do
     render(conn, :index, quotes: quotes)
   end
 
+  def show(conn, %{"id" => id}) do
+    quote = Quotes.get_quote!(id)
+    render(conn, :show, quote: quote)
+  end
+
   def random(conn, _params) do
     random_quote = Quotes.get_random_quote()
     render(conn, :random, random_quote: random_quote)
