@@ -9,6 +9,10 @@ defmodule GotQuotesApiWeb.QuotesJSON do
     %{data: quote_json(random_quote)}
   end
 
+  def show(%{quote: quote}) do
+    %{data: quote_json(quote)}
+  end
+
   defp quote_json(%Quote{} = quote) do
     %{
       id: quote.id,
