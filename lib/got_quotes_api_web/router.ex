@@ -27,6 +27,10 @@ defmodule GotQuotesApiWeb.Router do
     get "/quotes", QuotesController, :index
     get "/quotes/random", QuotesController, :random
     get "/quotes/:id", QuotesController, :show
+
+    post "/quotes/new", QuotesController, :create
+
+    put "/quotes/:id", QuotesController, :update
   end
 
   # Enable LiveDashboard and Swoosh mailbox preview in development
